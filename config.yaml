@@ -1,0 +1,27 @@
+project:
+  seed: 1266
+
+paths:
+  firms_dir: data/raw/firms
+  era5_dir: data/raw/era5_land
+  worldcover_dir: data/raw/worldcover
+  dem_dir: data/raw/dem
+  processed_dir: data/processed
+  outputs_dir: outputs
+
+data:
+  # 한반도 범위를 넓게 두고 격자 단위로 먼저 확인
+  bbox: [124.0, 33.0, 132.0, 39.0]
+  grid_size: 0.25
+  start_date: "2025-03-20"
+  end_date: "2025-03-24"
+  target_col: fire_occurrence
+
+features:
+  weather_roll_windows: [1, 3]
+
+train:
+  valid_start_date: "2025-03-23"
+  test_start_date: "2025-03-24"
+  # threshold 튜닝 없이 기본값으로 먼저 확인
+  threshold: 0.5
